@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="40795" started-at="2021-04-05T04:36:58 UTC" finished-at="2021-04-05T04:37:39 UTC">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper,cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.swiggytest.runners.HomePageRunner@3aeaafa6]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper,cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.swiggytest.runners.SwiggySetLocaitonRunner@eafc191]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper,cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.swiggytest.runners.VerifyLoginRunner@612fc6eb]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Test" duration-ms="40795" started-at="2021-04-05T04:36:58 UTC" finished-at="2021-04-05T04:37:39 UTC">
+      <class name="com.swiggytest.runners.HomePageRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.swiggytest.runners.HomePageRunner@3aeaafa6]" name="setUpClass" is-config="true" duration-ms="95" started-at="2021-04-05T04:36:58 UTC" finished-at="2021-04-05T04:36:58 UTC">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper,cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.swiggytest.runners.HomePageRunner@3aeaafa6]" name="runScenario" duration-ms="4399" started-at="2021-04-05T04:36:58 UTC" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-04-05T04:37:03 UTC">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["verify home page opened"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Home Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.swiggytest.runners.HomePageRunner@3aeaafa6]" name="tearDownClass" is-config="true" duration-ms="361" started-at="2021-04-05T04:37:03 UTC" finished-at="2021-04-05T04:37:03 UTC">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.swiggytest.runners.HomePageRunner -->
+      <class name="com.swiggytest.runners.VerifyLoginRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.swiggytest.runners.VerifyLoginRunner@612fc6eb]" name="setUpClass" is-config="true" duration-ms="1" started-at="2021-04-05T04:37:10 UTC" finished-at="2021-04-05T04:37:10 UTC">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper,cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.swiggytest.runners.VerifyLoginRunner@612fc6eb]" name="runScenario" duration-ms="28882" started-at="2021-04-05T04:37:10 UTC" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-04-05T04:37:39 UTC">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login and verify"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.swiggytest.runners.VerifyLoginRunner@612fc6eb]" name="tearDownClass" is-config="true" duration-ms="179" started-at="2021-04-05T04:37:39 UTC" finished-at="2021-04-05T04:37:39 UTC">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.swiggytest.runners.VerifyLoginRunner -->
+      <class name="com.swiggytest.runners.SwiggySetLocaitonRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.swiggytest.runners.SwiggySetLocaitonRunner@eafc191]" name="setUpClass" is-config="true" duration-ms="1" started-at="2021-04-05T04:37:03 UTC" finished-at="2021-04-05T04:37:03 UTC">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper,cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.swiggytest.runners.SwiggySetLocaitonRunner@eafc191]" name="runScenario" duration-ms="6660" started-at="2021-04-05T04:37:03 UTC" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-04-05T04:37:10 UTC">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Set location and verify"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Set Location"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.swiggytest.runners.SwiggySetLocaitonRunner@eafc191]" name="tearDownClass" is-config="true" duration-ms="135" started-at="2021-04-05T04:37:10 UTC" finished-at="2021-04-05T04:37:10 UTC">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.swiggytest.runners.SwiggySetLocaitonRunner -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,0 +1,83 @@
+<project name="Swiggy Application Test" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+	  <path id="maven-ant-tasks.classpath" path="lib/maven-ant-tasks-2.1.3.jar" />
+	  <typedef resource="org/apache/maven/artifact/ant/antlib.xml"
+	           uri="antlib:org.apache.maven.artifact.ant"
+	           classpathref="maven-ant-tasks.classpath" />
+
+	<artifact:pom id="mypom" file="pom.xml" />
+
+	<artifact:dependencies filesetId="mydeps" pomRefId="mypom" />
+
+	<target name="resolve" description="--> retrieve dependencies with maven">
+	    <!-- Resolve dependencies -->
+	    <artifact:dependencies filesetId="dependency.fileset">
+	        <pom file="pom.xml" />
+	    </artifact:dependencies>
+	    <!-- Copy all dependencies to the correct location. -->
+	    <copy todir="libs">
+	        <fileset refid="dependency.fileset" />
+	        <!-- This mapper strips off all leading directory information -->
+	        <mapper type="flatten" />
+	    </copy>
+	</target>
+	<!-- ========== Initialize Properties =================================== -->
+	<!-- set global properties for build -->
+	<property name="basedir" value="." />
+	<property name="lib" value="${basedir}/libs" />
+	<property name="src" value="${basedir}/src" />
+	<property name="bin" value="${basedir}/bin" />
+	<property name="dis" value="${basedir}/dist" />
+	<property name="report-dir" value="${basedir}/testreports" />
+	<property name="testng-output-dir" value="${report-dir}/test-output" />
+	<taskdef resource="testngtasks"> 
+	   <classpath>
+	      <pathelement location="libs/testng-7.4.0.jar"/>
+	   </classpath>
+	</taskdef>
+	<!-- ====== Set the classpath ====  -->
+	<path id="classpath">
+		<pathelement location="${bin}" />
+		<fileset dir="${lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	
+	<!-- Delete directories  -->
+	<target name="delete-dir">
+		<delete dir="${bin}" />
+		<delete dir="${report-dir}" />
+		<delete dir="${dis}" />
+	</target>
+	
+	<!-- Creating directories -->
+	<target name="create" depends="delete-dir">
+		<mkdir dir="${bin}" />
+		<mkdir dir="${report-dir}" />
+		<mkdir dir="${dis}" />
+	</target>
+	
+	<!-- Compile the java code from ${src} into ${bin} -->
+	<target name="compile" depends="create">
+		<javac srcdir="${src}" classpathref="classpath" includeAntRuntime="No" destdir="${bin}" />
+		<echo> /* Compiled Directory Classes */ </echo>
+	</target>
+	
+	<!-- Runs the file and generates Reportng report for TestNG-->
+	<!--taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="classpath" /-->
+	
+	<target name="testng-execution" depends="compile">
+		<mkdir dir="${testng-output-dir}" />
+		<testng outputdir="${testng-output-dir}" classpathref="classpath" useDefaultListeners="true">
+			<xmlfileset dir="${basedir}" includes="testng.xml" />
+		</testng>
+	</target>
+	<target name="dist" depends="compile">
+	   <jar destfile="${dis}/swiggyApplicationTesting.jar" basedir="${lib}" >
+	        <manifest>
+	            <attribute name="Main-Class" value="com/swiggytest/main/AppRun.class"/>
+	        </manifest>
+	        <fileset dir="${bin}/" includes="**/*.class"/>
+	    </jar>
+
+	</target>
+</project>
